@@ -1,0 +1,2 @@
+# goCurate
+LLM document curation
