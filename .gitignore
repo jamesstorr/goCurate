@@ -23,3 +23,71 @@ go.work.sum
 
 # env file
 .env
+
+# ADDED 
+
+
+slackKG
+.env
+.env.prod
+.env.dev
+.env.*
+.env_*
+audit/*
+audit/*.*
+audit/dev/*
+audit/*/*
+
+# Mac stuff
+.DS_Store
+
+#Terraform related to be ignored and not pushed to Git
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include override files you do wish to add to version control using negated pattern
+# !example_override.tf
+
+# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+# example: *tfplan*
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+.terraform.lock.hcl
+terraform/plugin-cache/*
+
+Documents/*
+backend.tf
+Analysis.xlsx
+
+# Data files
+*.json
+*.xml
+out.txt
+*.csv
+
+# Secrets
+conf/private.json
+Secrets/*
+Data/*
+output/*
+output/*/*.*
+tmp/*
