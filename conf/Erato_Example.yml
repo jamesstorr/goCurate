@@ -1,0 +1,18 @@
+Erato:
+  Conf:
+    Debug: true
+  Collectors:
+    Sharepoints:
+      - Name: Foo
+        Debug:
+    Websites:
+      - Name: "bar.com"
+        Debug: true
+  Analysers:
+    - Name:
+      Type:
+      Debug:
+  Preparers:
+    - Name: 
+      Type:
+      Debug:

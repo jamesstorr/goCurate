@@ -1,0 +1,54 @@
+Erato:
+  Conf:
+    Debug: true
+    ExcludePaths:
+      - "foo"
+      - "bar"
+    AuditDir: ./audit/
+    LogDir: ./logs/
+    AnalysisWorkers: 5
+    DepthLimit: 2
+  Collectors:
+    Sharepoint:
+      Name: "BJSS Bids"
+      SecretsFile: ./.sharepointSecrets.env
+      SiteUrl: "https://bjssbids.sharepoint.com/sites/BJSSBids"
+      DebugDepth:
+      Debug: true
+    Website:
+      Name: "https://digital.nhs.uk"
+      AllowedDomains: "digital.nhs.uk"
+      Debug: true
+  Analysers:
+    OpenAI:
+      Name: BJSSAzure
+      BaseURL: https://in-bjss-openai-us.openai.azure.com/
+      SecretsFile: ./.openaiSecrets.env
+      Model: gpt-4-32k
+      # Model: text-davinci-003
+      MaxTokens: 1000
+      Temp: 0
+      Workers: 100
+      PromptFile: ./Website_Researcher_prompt.txt
+      Debug:
+    ComprehendMedical:
+      Name: "Not Implemented yet"
+      ApiEndPoint: "https://comprehendmedical.us-west-2.amazonaws.com"
+      SecretsFile: ./awsComprehendMedicalSecrets.json
+      Debug:
+  Preparer:
+      MaxParagraphWordCount: 25000
+      MinParagraphWordCount: 20
+      Debug:
+Collections:
+  - Name: "Collection 1"
+    ContentSource:
+      Name: "website collector"
+      Collector: e.EratoCollectors.Website
+      ContentAnalyser: e.EratoAnalysers.OpenAI
+  - Name: "Collection 2"
+    ContentSource:
+      Name: "website collector"
+      Collector: e.EratoCollectors.Website
+    ContentPreparer: e.EratoPreparer
+    ContentAnalyser: e.EratoAnalysers.OpenAI
